@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>pick avatars</title>
+<style>
+body { background: #1a1a1a; color: #fff; font-family: sans-serif; padding: 2rem; }
+h2 { font-weight: 300; margin-top: 2rem; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, 120px); gap: 1rem; }
+.card { text-align: center; cursor: pointer; padding: 0.5rem; border-radius: 8px; transition: background 0.2s; }
+.card:hover { background: #333; }
+.card img { width: 100px; height: 100px; border-radius: 50%; background: #262626; }
+.card p { font-size: 11px; margin: 4px 0 0; opacity: 0.6; }
+.selected { background: #22c55e33; outline: 2px solid #22c55e; }
+</style>
+</head>
+<body>
+<h2>notionists style -- click to select</h2>
+<div class="grid" id="notionists"></div>
+
+<h2>adventurer style</h2>
+<div class="grid" id="adventurer"></div>
+
+<h2>lorelei style</h2>
+<div class="grid" id="lorelei"></div>
+
+<h2>big-ears style</h2>
+<div class="grid" id="bigears"></div>
+
+<div id="result" style="position:fixed;bottom:0;left:0;right:0;background:#262626;padding:1rem;font-family:monospace;font-size:13px;border-top:1px solid #444;"></div>
+
+<script>
+const seeds = [
+  "Sophia","Aria","Luna","Mia","Zara","Ananya","Priya","Nisha","Kavya","Aisha",
+  "Lily","Chloe","Emma","Isabella","Amelia","Grace","Jasmine","Maya","Riya","Sana",
+  "MrujaShah","DhvaniViroja","Meera","Diya","Tara","Asha","Neha","Pooja","Shreya","Ira"
+];
+const styles = [
+  { id: "notionists", name: "notionists" },
+  { id: "adventurer", name: "adventurer" },
+  { id: "lorelei", name: "lorelei" },
+  { id: "bigears", name: "big-ears" }
+];
+const selected = {};
+styles.forEach(style => {
+  const grid = document.getElementById(style.id);
+  seeds.forEach(seed => {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `<img src="https://api.dicebear.com/7.x/${style.name}/svg?seed=${seed}&backgroundColor=transparent" alt="${seed}"><p>${seed}</p>`;
+    card.onclick = () => {
+      card.classList.toggle("selected");
+      const key = `${style.name}/${seed}`;
+      if (selected[key]) delete selected[key]; else selected[key] = true;
+      document.getElementById("result").textContent = "selected: " + Object.keys(selected).join(", ");
+    };
+    grid.appendChild(card);
+  });
+});
+</script>
+</body>
+</html>
