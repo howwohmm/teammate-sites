@@ -139,7 +139,8 @@
     }
     .hero-tagline .accent-dot { color: var(--accent); }
     .hero-socials {
-      border-top: 1px solid var(--edge); padding: 4px 16px; display: flex;
+      border-top: 1px solid var(--edge); padding: 4px 16px;
+      display: flex; align-items: center; flex-wrap: wrap; row-gap: 4px;
     }
     .social-btn {
       display: inline-flex; align-items: center; justify-content: center;
@@ -149,6 +150,16 @@
     }
     .social-btn:hover { background: var(--accent-muted); color: var(--accent); }
     .social-btn svg { width: 14px; height: 14px; }
+    .resume-btn {
+      margin-left: auto; display: inline-flex; align-items: center; gap: 6px;
+      padding: 0 12px; height: 32px; border-radius: 8px;
+      border: 1px solid var(--edge); text-decoration: none; white-space: nowrap;
+      font-family: var(--font-mono); font-size: 12px; font-weight: 500;
+      color: var(--muted-foreground);
+      transition: color 0.15s, border-color 0.15s, background-color 0.15s;
+    }
+    .resume-btn:hover { color: var(--accent); border-color: var(--accent); background: var(--accent-muted); }
+    .resume-btn svg { width: 13px; height: 13px; }
 
     /* pattern divider */
     .pattern-divider {
@@ -212,6 +223,7 @@
       .header-nav { gap: 10px; }
       .header-nav a { font-size: 13px; }
       .header-nav a .kbd { display: none; }
+      .resume-btn { margin-left: 0; }
     }
   </style>
 </head>
@@ -267,6 +279,7 @@
           <a class="social-btn" href="https://x.com/Prajval0406" target="_blank" title="X"><svg fill="none" viewBox="0 0 1200 1227"><path fill="currentColor" d="M714.163 519.284 1160.89 0h-105.86L667.137 450.887 357.328 0H0l468.492 681.821L0 1226.37h105.866l409.625-476.152 327.181 476.152H1200L714.137 519.284h.026ZM569.165 687.828l-47.468-67.894-377.686-540.24h162.604l304.797 435.991 47.468 67.894 396.2 566.721H892.476L569.165 687.854v-.026Z"/></svg></a>
           <a class="social-btn" href="https://www.instagram.com/xx._prajval_.xx" target="_blank" title="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
           <a class="social-btn" href="mailto:prajval280412@gmail.com" title="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg></a>
+          <a class="resume-btn" href="prajval-resume.pdf" target="_blank" rel="noopener" title="View resume"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>View resume</a>
         </div>
       </div>
     </div>
