@@ -1,0 +1,11 @@
+# Binary assets must never have their line endings normalised.
+# Without this, a checkout with core.autocrlf=true rewrites LF bytes inside a
+# PDF to CRLF, shifting byte offsets and corrupting the cross-reference table.
+*.pdf binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.woff binary
+*.woff2 binary
